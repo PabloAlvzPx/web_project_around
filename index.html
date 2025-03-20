@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Around the U.S." />
+    <meta name="author" content="Pablo Alvarez" />
+    <meta name="keywords" content="html, css, js" />
+    <title>Around the U.S.</title>
+    <link rel="shortcut icon" href="favico.ico" />
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="popup">
+        <button type="button" class="popup__button popup__button_close">
+          x
+        </button>
+        <form action class="popup__container">
+          <h2 class="popup__subtitle">Editar perfil</h2>
+          <fieldset class="popup__content">
+            <input
+              type="text"
+              class="popup__input popup__input_name"
+              placeholder="Nombre"
+            />
+            <input
+              type="text"
+              class="popup__input popup__input_about"
+              placeholder="Acerca de mi"
+            />
+          </fieldset>
+          <fieldset class="popup__content">
+            <button type="submit" class="popup__button popup__button_save">
+              Guardar
+            </button>
+          </fieldset>
+        </form>
+      </div>
+      <header class="header">
+        <img
+          src="./images/header.png"
+          alt="Around the U.S."
+          class="header__image"
+        />
+      </header>
+      <main class="main">
+        <div class="main__profile">
+          <div class="main__content-image">
+            <img
+              src="./images/yo.jpg"
+              alt="profile-image"
+              class="main__profile-image"
+            />
+          </div>
+          <div class="main__content-paragraph">
+            <p class="main__paragraph main__paragraph_name">Pablo Alvarez</p>
+            <p class="main__paragraph main__paragraph_about">Estudiante</p>
+            <button type="button" class="main__button main__button_edit">
+              <img src="./images/EditB.png" alt="Edit Button" />
+            </button>
+          </div>
+          <button type="button" class="main__button main__button_add">+</button>
+        </div>
+        <div class="main__gallery">
+          <div class="main__gallery-card">
+            <img
+              src="./images/Yosemite.jpg"
+              alt="Valle de yosemite"
+              class="main__gallery-image"
+            />
+            <div class="main__gallery-content">
+              <p class="main__gallery-paragraph">Valle de Yosemite</p>
+              <button type="button" class="main__button main__button_like">
+                <img
+                  src="./images/likedesact.svg"
+                  alt="Like"
+                  class="main__gallery-like"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="main__gallery-card">
+            <img
+              src="./images/Louise.png"
+              alt="Lago Louise"
+              class="main__gallery-image"
+            />
+            <div class="main__gallery-content">
+              <p class="main__gallery-paragraph">Lago Louise</p>
+              <button type="button" class="main__button main__button_like">
+                <img
+                  src="./images/likedesact.svg"
+                  alt="Like"
+                  class="main__gallery-like"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="main__gallery-card">
+            <img
+              src="./images/Calvas.png"
+              alt="Montañas Calvas"
+              class="main__gallery-image"
+            />
+            <div class="main__gallery-content">
+              <p class="main__gallery-paragraph">Montañas Calvas</p>
+              <button type="button" class="main__button main__button_like">
+                <img
+                  src="./images/likedesact.svg"
+                  alt="Like"
+                  class="main__gallery-like"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="main__gallery-card">
+            <img
+              src="./images/Latemar.png"
+              alt="Latemar"
+              class="main__gallery-image"
+            />
+            <div class="main__gallery-content">
+              <p class="main__gallery-paragraph">Latemar</p>
+              <button type="button" class="main__button main__button_like">
+                <img
+                  src="./images/likedesact.svg"
+                  alt="Like"
+                  class="main__gallery-like"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="main__gallery-card">
+            <img
+              src="./images/Vanois.png"
+              alt="Vanois National Park"
+              class="main__gallery-image"
+            />
+            <div class="main__gallery-content">
+              <p
+                class="main__gallery-paragraph main__gallery-paragraph_text_overflow"
+              >
+                Vanois National Park
+              </p>
+              <button type="button" class="main__button main__button_like">
+                <img
+                  src="./images/likedesact.svg"
+                  alt="Like"
+                  class="main__gallery-like"
+                />
+              </button>
+            </div>
+          </div>
+          <div class="main__gallery-card">
+            <img
+              src="./images/Braies.png"
+              alt="Lago Braies"
+              class="main__gallery-image"
+            />
+            <div class="main__gallery-content">
+              <p class="main__gallery-paragraph">Lago di Braies</p>
+              <button type="button" class="main__button main__button_like">
+                <img
+                  src="./images/likedesact.svg"
+                  alt="Like"
+                  class="main__gallery-like"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">© 2025 Around The U.S.</p>
+      </footer>
+    </div>
+    <script src="./script/script.js"></script>
+  </body>
+</html>
