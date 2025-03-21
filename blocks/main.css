@@ -44,6 +44,9 @@
   line-height: 48px;
   font-weight: 600;
   padding-top: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .main__paragraph_about {
@@ -52,6 +55,9 @@
   margin: 0;
   font-size: 18px;
   padding-bottom: 21px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .main__button {
@@ -180,8 +186,9 @@
 @media screen and (min-width: 585px) and (max-width: 880px) {
   .main__profile {
     max-width: 700px;
-    margin: auto;
     padding-bottom: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
 
   .main__paragraph_name {
