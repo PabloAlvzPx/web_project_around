@@ -125,6 +125,16 @@
   overflow: hidden;
 }
 
+.main__button_trash {
+  border: none;
+  width: 19px;
+  height: 19px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: url(../images/trash.svg) center no-repeat;
+}
+
 .main__button_like {
   border: none;
   height: 19px;
