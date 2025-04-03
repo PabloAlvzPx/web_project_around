@@ -106,6 +106,11 @@
   border-top-right-radius: 10px;
 }
 
+.main__gallery-image:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
 .main__gallery-content {
   display: flex;
   justify-content: space-between;
@@ -114,9 +119,14 @@
 }
 
 .main__gallery-paragraph {
-  font-family: "Inter-black", sans-serif;
+  max-width: 230px;
+  height: 25px;
+  font-family: "Inter-Black", sans-serif;
   font-size: 24px;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .main__gallery-paragraph_text_overflow {
@@ -137,12 +147,14 @@
 
 .main__button_like {
   border: none;
+  width: 25px;
   height: 19px;
   align-self: flex-end;
+  background: url(../images/likeacti.svg) center no-repeat;
 }
 
 .main__button_like_active {
-  background-image: url(../images/likeacti.svg);
+  background-image: url(../images/likedesact.svg);
 }
 
 @media screen and (min-width: 320px) and (max-width: 584px) {

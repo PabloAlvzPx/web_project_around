@@ -16,7 +16,15 @@
         <button type="button" class="popup__button popup__button_close">
           x
         </button>
-        <form class="popup__container">
+        <div class="popup__images" style="display: none">
+          <div class="popup__content-image">
+            <img class="popup__image" src="#" alt />
+          </div>
+          <div class="popup__paragraph-content">
+            <p class="popup__paragraph"></p>
+          </div>
+        </div>
+        <form action="#" class="popup__container">
           <h2 class="popup__subtitle">Editar perfil</h2>
           <fieldset class="popup__content">
             <input
@@ -31,7 +39,19 @@
             />
           </fieldset>
           <fieldset class="popup__content">
-            <button type="submit" class="popup__button popup__button_save">
+            <button
+              type="submit"
+              class="popup__button popup__button_save"
+              style="display: none"
+            >
+              Guardar
+            </button>
+            <button
+              type="button"
+              class="popup__button popup__button_add"
+              disabled
+              style="display: block"
+            >
               Guardar
             </button>
           </fieldset>
@@ -57,144 +77,34 @@
             <p class="main__paragraph main__paragraph_name">Pablo Alvarez</p>
             <p class="main__paragraph main__paragraph_about">Estudiante</p>
             <button type="button" class="main__button main__button_edit">
-              <img src="./images/EditB.png" alt="Edit Button" />
+              <img src="./images/edit.svg" alt="Edit Button" />
             </button>
           </div>
           <button type="button" class="main__button main__button_add">+</button>
         </div>
         <div class="main__gallery">
-          <div class="main__gallery-card">
-            <img
-              src="./images/Yosemite.jpg"
-              alt="Valle de yosemite"
-              class="main__gallery-image"
-            />
-            <button
-              type="button"
-              class="main__button main__button_trash"
-            ></button>
-            <div class="main__gallery-content">
-              <p class="main__gallery-paragraph">Valle de Yosemite</p>
-              <button type="button" class="main__button main__button_like">
-                <img
-                  src="./images/likedesact.svg"
-                  alt="Like"
-                  class="main__gallery-like"
-                />
-              </button>
-            </div>
-          </div>
-          <div class="main__gallery-card">
-            <img
-              src="./images/Louise.png"
-              alt="Lago Louise"
-              class="main__gallery-image"
-            />
-            <button
-              type="button"
-              class="main__button main__button_trash"
-            ></button>
-            <div class="main__gallery-content">
-              <p class="main__gallery-paragraph">Lago Louise</p>
-              <button type="button" class="main__button main__button_like">
-                <img
-                  src="./images/likedesact.svg"
-                  alt="Like"
-                  class="main__gallery-like"
-                />
-              </button>
-            </div>
-          </div>
-          <div class="main__gallery-card">
-            <img
-              src="./images/Calvas.png"
-              alt="Montañas Calvas"
-              class="main__gallery-image"
-            />
-            <button
-              type="button"
-              class="main__button main__button_trash"
-            ></button>
-            <div class="main__gallery-content">
-              <p class="main__gallery-paragraph">Montañas Calvas</p>
-              <button type="button" class="main__button main__button_like">
-                <img
-                  src="./images/likedesact.svg"
-                  alt="Like"
-                  class="main__gallery-like"
-                />
-              </button>
-            </div>
-          </div>
-          <div class="main__gallery-card">
-            <img
-              src="./images/Latemar.png"
-              alt="Latemar"
-              class="main__gallery-image"
-            />
-            <button
-              type="button"
-              class="main__button main__button_trash"
-            ></button>
-            <div class="main__gallery-content">
-              <p class="main__gallery-paragraph">Latemar</p>
-              <button type="button" class="main__button main__button_like">
-                <img
-                  src="./images/likedesact.svg"
-                  alt="Like"
-                  class="main__gallery-like"
-                />
-              </button>
-            </div>
-          </div>
-          <div class="main__gallery-card">
-            <img
-              src="./images/Vanois.png"
-              alt="Vanois National Park"
-              class="main__gallery-image"
-            />
-            <button
-              type="button"
-              class="main__button main__button_trash"
-            ></button>
-            <div class="main__gallery-content">
-              <p
-                class="main__gallery-paragraph main__gallery-paragraph_text_overflow"
-              >
-                Vanois National Park
-              </p>
-              <button type="button" class="main__button main__button_like">
-                <img
-                  src="./images/likedesact.svg"
-                  alt="Like"
-                  class="main__gallery-like"
-                />
-              </button>
-            </div>
-          </div>
-          <div class="main__gallery-card">
-            <img
-              src="./images/Braies.png"
-              alt="Lago Braies"
-              class="main__gallery-image"
-            />
-            <button
-              type="button"
-              class="main__button main__button_trash"
-            ></button>
-            <div class="main__gallery-content">
-              <p class="main__gallery-paragraph">Lago di Braies</p>
-              <button type="button" class="main__button main__button_like">
-                <img
-                  src="./images/likedesact.svg"
-                  alt="Like"
-                  class="main__gallery-like"
-                />
-              </button>
-            </div>
-          </div>
+
         </div>
       </main>
+      <template id="main__template">
+        <div class="main__gallery-card">
+          <img
+            src="./images/Yosemite.jpg"
+            alt="Valle de yosemite"
+            class="main__gallery-image"
+          />
+          <button
+            type="button"
+            class="main__button main__button_trash"
+          ></button>
+          <div class="main__gallery-content">
+            <p class="main__gallery-paragraph">Valle de Yosemite</p>
+            <button
+              type="button"
+              class="main__button main__button_like main__button_like_active"
+            ></button>
+          </div>
+      </template>
       <footer class="footer">
         <p class="footer__copyright">&copy; 2025 Around The U.S.</p>
       </footer>
