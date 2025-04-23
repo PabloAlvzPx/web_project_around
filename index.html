@@ -16,7 +16,7 @@
         <button type="button" class="popup__button popup__button_close">
           x
         </button>
-        <div class="popup__images" style="display: none">
+        <div class="popup__images">
           <div class="popup__content-image">
             <img class="popup__image" src="#" alt />
           </div>
@@ -24,33 +24,71 @@
             <p class="popup__paragraph"></p>
           </div>
         </div>
-        <form action="#" class="popup__container">
+        <form class="popup__form" id="formEdit" novalidate>
           <h2 class="popup__subtitle">Editar perfil</h2>
           <fieldset class="popup__content">
-            <input
-              type="text"
-              class="popup__input popup__input_name"
-              placeholder="Nombre"
-            />
-            <input
-              type="text"
-              class="popup__input popup__input_about"
-              placeholder="Acerca de mi"
-            />
-          </fieldset>
-          <fieldset class="popup__content">
+            <label class="popup__field">
+              <input
+                type="text"
+                class="popup__input popup__input_name"
+                placeholder="Nombre"
+                minlength="2"
+                maxlength="40"
+                id="name-input"
+                required
+              />
+              <span class="popup__input-error name-input-error"></span>
+            </label>
+            <label class="popup__field">
+              <input
+                type="text"
+                class="popup__input popup__input_about"
+                placeholder="Acerca de mi"
+                minlength="2"
+                maxlength="200"
+                id="about-input"
+                required
+              />
+              <span class="popup__input-error about-input-error"></span>
+            </label>
             <button
               type="submit"
-              class="popup__button popup__button_save"
-              style="display: none"
+              class="popup__button popup__button_save popup__button_disabled"
+              disabled
             >
               Guardar
             </button>
+          </fieldset>
+        </form>
+        <form class="popup__form" id="formAdd" novalidate>
+          <h2 class="popup__subtitle">Nuevo Lugar</h2>
+          <fieldset class="popup__content">
+            <label class="popup__field">
+              <input
+                type="text"
+                class="popup__input popup__input_title"
+                placeholder="Título"
+                minlength="2"
+                maxlength="30"
+                id="title-input"
+                required
+              />
+              <span class="popup__input-error title-input-error"></span>
+            </label>
+            <label class="popup__field">
+              <input
+                type="url"
+                class="popup__input popup__input_url"
+                placeholder="URL a la imagen"
+                id="url-input"
+                required
+              />
+              <span class="popup__input-error url-input-error"></span>
+            </label>
             <button
-              type="button"
-              class="popup__button popup__button_add"
+              type="submit"
+              class="popup__button popup__button_add popup__button_disabled"
               disabled
-              style="display: block"
             >
               Guardar
             </button>
@@ -95,12 +133,13 @@
             type="button"
             class="main__button main__button_trash"
           ></button>
-        <div class="main__gallery-content">
-          <p class="main__gallery-paragraph">Valle de Yosemite</p>
-          <button
-            type="button"
-            class="main__button main__button_like main__button_like_active"
-          ></button>
+          <div class="main__gallery-content">
+            <p class="main__gallery-paragraph">Valle de Yosemite</p>
+            <button
+              type="button"
+              class="main__button main__button_like main__button_like_active"
+            ></button>
+          </div>
         </div>
       </template>
       <footer class="footer">
@@ -108,5 +147,6 @@
       </footer>
     </div>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>
