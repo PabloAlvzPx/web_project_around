@@ -43,22 +43,25 @@ const initialCards = [
 
 function openEditAdd(e) {
   const butClass = e.target.classList;
+
+  popup.classList.add("popup_opened");
+
+  formAdd.classList.add("popup__item-hidden");
+  formEd.classList.add("popup__item-hidden");
+  popimg.classList.add("popup__item-hidden");
+
   if (butClass.contains("main__button_edit")) {
-    popup.classList.toggle("popup_opened");
-    formAdd.classList.toggle("popup__item-hidden");
-    popimg.classList.toggle("popup__item-hidden");
+    formEd.classList.remove("popup__item-hidden");
   } else if (butClass.contains("main__button_add")) {
-    popup.classList.toggle("popup_opened");
-    formEd.classList.toggle("popup__item-hidden");
-    popimg.classList.toggle("popup__item-hidden");
+    formAdd.classList.remove("popup__item-hidden");
   }
 }
 
 function close() {
   popup.classList.remove("popup_opened");
-  popimg.classList.remove("popup__item-hidden");
-  formAdd.classList.remove("popup__item-hidden");
-  formEd.classList.remove("popup__item-hidden");
+  popimg.classList.add("popup__item-hidden");
+  formAdd.classList.add("popup__item-hidden");
+  formEd.classList.add("popup__item-hidden");
   popButSave.classList.remove("popup__item-hidden");
   popButAdd.classList.remove("popup__item-hidden");
   resetValidation();
