@@ -42,17 +42,19 @@ const initialCards = [
 ];
 
 function openEditAdd(e) {
-  const butClass = e.target.classList;
+  const button = e.target.closest("button");
+
+  if (!button) return;
 
   popup.classList.add("popup_opened");
 
-  formAdd.classList.add("popup__item-hidden");
   formEd.classList.add("popup__item-hidden");
+  formAdd.classList.add("popup__item-hidden");
   popimg.classList.add("popup__item-hidden");
 
-  if (butClass.contains("main__button_edit")) {
+  if (button.classList.contains("main__button_edit")) {
     formEd.classList.remove("popup__item-hidden");
-  } else if (butClass.contains("main__button_add")) {
+  } else if (button.classList.contains("main__button_add")) {
     formAdd.classList.remove("popup__item-hidden");
   }
 }
