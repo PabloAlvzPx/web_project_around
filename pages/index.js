@@ -15,12 +15,12 @@ const inpTitle = document.querySelector(".popup__input_title");
 const inpUrl = document.querySelector(".popup__input_url");
 
 const initialCards = [
-  { name: "Valle de Yosemite", link: "../images/Yosemite.jpg" },
-  { name: "Lago Louise", link: "../images/Louise.png" },
-  { name: "Montañas Calvas", link: "../images/Calvas.png" },
-  { name: "Latemar", link: "../images/Latemar.png" },
-  { name: "Vanois National Park", link: "../images/Vanois.png" },
-  { name: "Lago di Braies", link: "../images/Braies.png" },
+  { name: "Valle de Yosemite", link: "./images/Yosemite.jpg" },
+  { name: "Lago Louise", link: "./images/Louise.png" },
+  { name: "Montañas Calvas", link: "./images/Calvas.png" },
+  { name: "Latemar", link: "./images/Latemar.png" },
+  { name: "Vanois National Park", link: "./images/Vanois.png" },
+  { name: "Lago di Braies", link: "./images/Braies.png" },
 ];
 
 const formConfig = {
