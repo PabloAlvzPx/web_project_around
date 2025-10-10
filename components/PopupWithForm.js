@@ -8,6 +8,11 @@ export default class PopupWithForm extends Popup {
       this._formElement.querySelectorAll(".popup__input")
     );
     this._handleFormSubmit = handleFormSubmit;
+
+    this._submitButton = this._formElement.querySelector(".popup__button_save");
+    if (this._submitButton) {
+      this._initialButtonText = this._submitButton.textContent;
+    }
   }
 
   _getInputValues() {
@@ -16,6 +21,16 @@ export default class PopupWithForm extends Popup {
       inputValues[input.name] = input.value;
     });
     return inputValues;
+  }
+
+  setLoading(isLoading, loadingText = "Guardando...") {
+    if (!this._submitButton) return;
+
+    if (isLoading) {
+      this._submitButton.textContent = loadingText;
+    } else {
+      this._submitButton.textContent = this._initialButtonText;
+    }
   }
 
   setEventListeners() {
@@ -28,6 +43,9 @@ export default class PopupWithForm extends Popup {
 
   open() {
     super.open();
+    if (this._submitButton) {
+      this._submitButton.textContent = this._initialButtonText;
+    }
     this._formElement.classList.remove("popup__item-hidden");
   }
 

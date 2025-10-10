@@ -12,20 +12,11 @@
   </head>
   <body>
     <div class="page">
-      <div class="popup">
+      <div class="popup popup_edit">
         <button type="button" class="popup__button popup__button_close">
           x
         </button>
-
-        <div class="popup__images popup__item-hidden">
-          <div class="popup__content-image">
-            <img class="popup__image" src="#" alt />
-          </div>
-          <div class="popup__paragraph-content">
-            <p class="popup__paragraph"></p>
-          </div>
-        </div>
-        <form class="popup__form popup__item-hidden" id="formEdit" novalidate>
+        <form class="popup__form" id="formEdit" novalidate>
           <h2 class="popup__subtitle">Editar perfil</h2>
           <fieldset class="popup__content">
             <label class="popup__field">
@@ -36,34 +27,36 @@
                 minlength="2"
                 maxlength="40"
                 id="name-input"
-                name="name-input"
+                name="name"
                 required
               />
-              <span class="popup__input-error name-input-error"></span>
+              <span class="popup__error" id="name-input-error"></span>
             </label>
             <label class="popup__field">
               <input
                 type="text"
                 class="popup__input popup__input_about"
-                placeholder="Acerca de mi"
+                placeholder="Acerca de mí"
                 minlength="2"
                 maxlength="200"
                 id="about-input"
-                name="about-input"
+                name="about"
                 required
               />
-              <span class="popup__input-error about-input-error"></span>
+              <span class="popup__error" id="about-input-error"></span>
             </label>
-            <button
-              type="submit"
-              class="popup__button popup__button_save popup__button_disabled"
-              disabled
-            >
-              Guardar
-            </button>
           </fieldset>
+          <button type="submit" class="popup__button popup__button_save">
+            Guardar
+          </button>
         </form>
-        <form class="popup__form popup__item-hidden" id="formAdd" novalidate>
+      </div>
+
+      <div class="popup popup_add">
+        <button type="button" class="popup__button popup__button_close">
+          x
+        </button>
+        <form class="popup__form" id="formAdd" novalidate>
           <h2 class="popup__subtitle">Nuevo Lugar</h2>
           <fieldset class="popup__content">
             <label class="popup__field">
@@ -74,47 +67,127 @@
                 minlength="2"
                 maxlength="30"
                 id="title-input"
-                name="title-input"
+                name="title"
                 required
               />
-              <span class="popup__input-error title-input-error"></span>
+              <span class="popup__error" id="title-input-error"></span>
             </label>
             <label class="popup__field">
               <input
                 type="url"
                 class="popup__input popup__input_url"
-                placeholder="URL a la imagen"
+                placeholder="Enlace de imagen"
                 id="url-input"
-                name="url-input"
+                name="url"
                 required
               />
-              <span class="popup__input-error url-input-error"></span>
+              <span class="popup__error" id="url-input-error"></span>
             </label>
-            <button
-              type="submit"
-              class="popup__button popup__button_add popup__button_disabled"
-              disabled
-            >
-              Guardar
-            </button>
           </fieldset>
+          <button type="submit" class="popup__button popup__button_save">
+            Crear
+          </button>
         </form>
       </div>
+
+      <div class="popup popup_confirm">
+        <div class="popup__container popup__container_confirm">
+          <button type="button" class="popup__button popup__button_close">
+            x
+          </button>
+          <form
+            class="popup__form popup__form_confirm"
+            id="formConfirm"
+            novalidate
+          >
+            <h2 class="popup__subtitle">¿Estás seguro?</h2>
+            <button
+              type="submit"
+              class="popup__button popup__button_save popup__button_save_confirm"
+            >
+              Sí
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="popup popup_image">
+        <button type="button" class="popup__button popup__button_close">
+          x
+        </button>
+        <div class="popup__images">
+          <div class="popup__content-image">
+            <img class="popup__image" src="#" alt="" />
+          </div>
+          <div class="popup__paragraph-content">
+            <p class="popup__paragraph"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup popup_avatar">
+        <button type="button" class="popup__button popup__button_close">
+          x
+        </button>
+        <form class="popup__form" id="formAvatar" novalidate>
+          <h2 class="popup__subtitle">Actualizar foto de perfil</h2>
+          <fieldset class="popup__content">
+            <label class="popup__field">
+              <input
+                type="url"
+                class="popup__input popup__input_url"
+                placeholder="Enlace de la imagen"
+                id="avatarUrl-input"
+                name="avatarUrl"
+                required
+              />
+              <span class="popup__error" id="avatarUrl-input-error"></span>
+            </label>
+          </fieldset>
+          <button type="submit" class="popup__button popup__button_save">
+            Guardar
+          </button>
+        </form>
+      </div>
+
+      <div class="popup popup_confirm">
+        <div class="popup__container popup__container_confirm">
+          <button type="button" class="popup__button popup__button_close">
+            x
+          </button>
+          <form
+            class="popup__form popup__form_confirm"
+            id="formConfirm"
+            novalidate
+          >
+            <h2 class="popup__subtitle">¿Estás seguro?</h2>
+            <button
+              type="submit"
+              class="popup__button popup__button_save popup__button_save_confirm"
+            >
+              Sí
+            </button>
+          </form>
+        </div>
+      </div>
+
       <header class="header">
         <img
           src="./images/header.png"
-          alt="Around the U.S."
+          alt="Around the U.S. Logo"
           class="header__image"
         />
       </header>
+
       <main class="main">
         <div class="main__profile">
           <div class="main__content-image">
             <img
               src="./images/yo.jpg"
-              alt="profile-image"
+              alt="Profile image"
               class="main__profile-image"
             />
+            <button type="button" class="main__profile-image-overlay"></button>
           </div>
           <div class="main__content-paragraph">
             <p class="main__paragraph main__paragraph_name">Pablo Alvarez</p>
@@ -127,6 +200,7 @@
         </div>
         <div class="main__gallery"></div>
       </main>
+
       <template id="main__template">
         <div class="main__gallery-card">
           <img
@@ -140,13 +214,17 @@
           ></button>
           <div class="main__gallery-content">
             <p class="main__gallery-paragraph">Valle de Yosemite</p>
-            <button
-              type="button"
-              class="main__button main__button_like main__button_like_active"
-            ></button>
+            <div class="main__like-container">
+              <button
+                type="button"
+                class="main__button main__button_like"
+              ></button>
+              <span class="main__like-count">0</span>
+            </div>
           </div>
         </div>
       </template>
+
       <footer class="footer">
         <p class="footer__copyright">&copy; 2025 Around The U.S.</p>
       </footer>
