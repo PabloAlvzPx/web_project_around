@@ -46,11 +46,6 @@ popupImage.setEventListeners();
 const popupConfirmation = new PopupWithConfirmation(".popup_confirm");
 popupConfirmation.setEventListeners();
 
-const popupDeleteConfirmation = new PopupWithConfirmation(
-  ".popup_type_confirm"
-);
-popupDeleteConfirmation.setEventListeners();
-
 const createCard = (data) => {
   const card = new Card(
     {
@@ -92,7 +87,7 @@ const createCard = (data) => {
           });
       },
     },
-    ".main__template"
+    "#main__template"
   );
   return card.generateCard();
 };
@@ -129,28 +124,32 @@ const popupEditForm = new PopupWithForm(
 );
 popupEditForm.setEventListeners();
 
-const popupAddForm = new PopupWithForm(".popup", "#formAdd", (inputValues) => {
-  popupAddForm.setLoading(true, "Creando...");
+const popupAddForm = new PopupWithForm(
+  ".popup_add",
+  "#formAdd",
+  (inputValues) => {
+    popupAddForm.setLoading(true, "Creando...");
 
-  const name = inputValues["title-input"];
-  const link = inputValues["url-input"];
+    const name = inputValues["title-input"];
+    const link = inputValues["url-input"];
 
-  api
-    .addCard(name, link)
-    .then((newCardData) => {
-      const cardElement = createCard(newCardData);
+    api
+      .addCard(name, link)
+      .then((newCardData) => {
+        const cardElement = createCard(newCardData);
 
-      cardListSection.addItem(cardElement);
+        cardListSection.addItem(cardElement);
 
-      popupAddForm.close();
-    })
-    .catch((err) => {
-      console.error("Error al crear la tarjeta:", err);
-    })
-    .finally(() => {
-      popupAddForm.setLoading(false);
-    });
-});
+        popupAddForm.close();
+      })
+      .catch((err) => {
+        console.error("Error al crear la tarjeta:", err);
+      })
+      .finally(() => {
+        popupAddForm.setLoading(false);
+      });
+  }
+);
 popupAddForm.setEventListeners();
 
 const popupAvatarForm = new PopupWithForm(

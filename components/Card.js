@@ -7,7 +7,7 @@ export default class Card {
     this._ownerId = data.owner._id;
     this._name = data.name;
     this._link = data.link;
-    this._likes = data.likes;
+    this._likes = data.likes || [];
 
     this._currentUserId = userId;
 
