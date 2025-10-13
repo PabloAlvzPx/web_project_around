@@ -4,7 +4,7 @@ export default class Card {
     templateSelector
   ) {
     this._cardId = data._id;
-    this._ownerId = data.owner._id;
+    this._ownerId = data.owner ? data.owner._id : null;
     this._name = data.name;
     this._link = data.link;
     this._likes = data.likes || [];
@@ -27,7 +27,7 @@ export default class Card {
   }
 
   setLikesCount(newLikes) {
-    this._likes = newLikes;
+    this._likes = Array.isArray(newLikes) ? newLikes : [];
     this._likeCountElement.textContent = this._likes.length;
     this.checkIfLiked();
   }
