@@ -1,18 +1,15 @@
 export default class Card {
   constructor(
     { data, userId, handleCardClick, handleDeleteClick, handleLikeClick },
-    templateSelector
+    templateSelector,
   ) {
     this._cardId = data._id;
-    this._ownerId = data.owner ? data.owner._id : null;
+    this._ownerId = data.owner && data.owner._id ? data.owner._id : data.owner;
     this._name = data.name;
     this._link = data.link;
-    this._likes = data.likes || [];
-
+    this._isLiked = data.isLiked;
     this._currentUserId = userId;
-
     this._templateSelector = templateSelector;
-
     this._handleCardClick = handleCardClick;
     this._handleDeleteClick = handleDeleteClick;
     this._handleLikeClick = handleLikeClick;
@@ -26,18 +23,35 @@ export default class Card {
     return this._template.cloneNode(true);
   }
 
-  setLikesCount(newLikes) {
-    this._likes = Array.isArray(newLikes) ? newLikes : [];
-    this._likeCountElement.textContent = this._likes.length;
-    this.checkIfLiked();
+  generateCard() {
+    this._cardElement = this._getTemplate();
+    this._cardImage = this._cardElement.querySelector(".main__gallery-image");
+    this._cardTitle = this._cardElement.querySelector(
+      ".main__gallery-paragraph",
+    );
+    this._likeButton = this._cardElement.querySelector(".main__button_like");
+    this._deleteButton = this._cardElement.querySelector(".main__button_trash");
+    this._likeCountElement =
+      this._cardElement.querySelector(".main__like-count");
+
+    this._cardTitle.textContent = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+
+    this._updateLikeStatus();
+    this._toggleDeleteButton();
+    this._setEventListeners();
+
+    return this._cardElement;
   }
 
-  checkIfLiked() {
-    const isLiked = this._likes.some(
-      (like) => like._id === this._currentUserId
-    );
+  removeCard() {
+    this._cardElement.remove();
+    this._cardElement = null;
+  }
 
-    if (isLiked) {
+  _updateLikeStatus() {
+    if (this._isLiked) {
       this._likeButton.classList.add("main__button_like_active");
     } else {
       this._likeButton.classList.remove("main__button_like_active");
@@ -45,13 +59,10 @@ export default class Card {
   }
 
   _handleLike() {
-    const isCurrentlyLiked = this._likeButton.classList.contains(
-      "main__button_like_active"
-    );
-
-    this._handleLikeClick(this._cardId, isCurrentlyLiked)
-      .then((res) => {
-        this.setLikesCount(res.likes);
+    this._handleLikeClick(this._cardId, this._isLiked)
+      .then((updatedCardData) => {
+        this._isLiked = updatedCardData.isLiked;
+        this._updateLikeStatus();
       })
       .catch((err) => {
         console.error('Error al manejar el "Me gusta":', err);
@@ -71,36 +82,11 @@ export default class Card {
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => this._handleLike());
-
     if (this._isOwnCard) {
       this._deleteButton.addEventListener("click", () => this._handleDelete());
     }
-
     this._cardImage.addEventListener("click", () =>
-      this._handleCardClick(this._name, this._link)
+      this._handleCardClick(this._name, this._link),
     );
-  }
-
-  generateCard() {
-    this._cardElement = this._getTemplate();
-    this._cardImage = this._cardElement.querySelector(".main__gallery-image");
-    this._cardTitle = this._cardElement.querySelector(
-      ".main__gallery-paragraph"
-    );
-
-    this._likeButton = this._cardElement.querySelector(".main__button_like");
-    this._deleteButton = this._cardElement.querySelector(".main__button_trash");
-    this._likeCountElement =
-      this._cardElement.querySelector(".main__like-count");
-
-    this._cardImage.src = this._link;
-    this._cardImage.alt = this._name;
-    this._cardTitle.textContent = this._name;
-
-    this._toggleDeleteButton();
-    this.setLikesCount(this._likes);
-    this._setEventListeners();
-
-    return this._cardElement;
   }
 }

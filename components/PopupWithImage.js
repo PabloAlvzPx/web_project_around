@@ -4,7 +4,7 @@ export default class PopupWithImage extends Popup {
   constructor(popupSelector, imageContainerSelector) {
     super(popupSelector);
     this._imageContainer = this._popupElement.querySelector(
-      imageContainerSelector
+      imageContainerSelector,
     );
     this._imageElement = this._imageContainer.querySelector(".popup__image");
     this._captionElement =
@@ -16,11 +16,9 @@ export default class PopupWithImage extends Popup {
     this._imageElement.alt = name;
     this._captionElement.textContent = name;
     super.open();
-    this._imageContainer.classList.remove("popup__item-hidden");
   }
 
   close() {
     super.close();
-    this._imageContainer.classList.add("popup__item-hidden");
   }
 }

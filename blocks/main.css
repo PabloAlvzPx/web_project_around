@@ -150,11 +150,11 @@
   width: 25px;
   height: 19px;
   align-self: flex-end;
-  background: url(../images/likeacti.svg) center no-repeat;
+  background: url(../images/likedesact.svg) center no-repeat;
 }
 
 .main__button_like_active {
-  background-image: url(../images/likedesact.svg);
+  background-image: url(../images/likeacti.svg);
 }
 
 @media screen and (min-width: 320px) and (max-width: 584px) {

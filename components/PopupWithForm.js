@@ -5,7 +5,7 @@ export default class PopupWithForm extends Popup {
     super(popupSelector);
     this._formElement = this._popupElement.querySelector(formSelector);
     this._inputList = Array.from(
-      this._formElement.querySelectorAll(".popup__input")
+      this._formElement.querySelectorAll(".popup__input"),
     );
     this._handleFormSubmit = handleFormSubmit;
 
@@ -46,7 +46,6 @@ export default class PopupWithForm extends Popup {
     if (this._submitButton) {
       this._submitButton.textContent = this._initialButtonText;
     }
-    this._formElement.classList.remove("popup__item-hidden");
   }
 
   close() {

@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const butEdit = document.querySelector(".main__button_edit");
   const butAdd = document.querySelector(".main__button_add");
   const butUpdateAvatar = document.querySelector(
-    ".main__profile-image-overlay"
+    ".main__profile-image-overlay",
   );
 
   const inputName = document.querySelector(".popup__input_name");
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const popupConfirmation = new PopupWithConfirmation(".popup_confirm");
   popupConfirmation.setEventListeners();
 
-  const createCard = (data) => {
+  function createCard(data) {
     const card = new Card(
       {
         data,
@@ -60,37 +60,31 @@ document.addEventListener("DOMContentLoaded", () => {
         handleDeleteClick: (cardId, cardElement) => {
           popupConfirmation.setSubmitAction(() => {
             popupConfirmation.setLoading(true, "Eliminando...");
-
             api
               .deleteCard(cardId)
               .then(() => {
-                cardElement.remove();
+                card.removeCard();
                 popupConfirmation.close();
               })
-              .catch((err) => {
-                console.error("Error al eliminar la tarjeta:", err);
-              })
-              .finally(() => {
-                popupConfirmation.setLoading(false);
-              });
+              .catch((err) =>
+                console.error("Error al eliminar la tarjeta:", err),
+              )
+              .finally(() => popupConfirmation.setLoading(false));
           });
           popupConfirmation.open();
         },
-
         handleLikeClick: (cardId, isLiked) => {
-          const likeAction = isLiked
-            ? api.removeLike(cardId)
-            : api.addLike(cardId);
-          likeAction.then((res) => {
-            card.setLikesCount(res.likes);
-          });
-          return likeAction;
+          if (isLiked) {
+            return api.removeLike(cardId);
+          } else {
+            return api.addLike(cardId);
+          }
         },
       },
-      "#main__template"
+      "#main__template",
     );
     return card.generateCard();
-  };
+  }
 
   const cardListSection = new Section(
     {
@@ -99,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cardListSection.addItem(cardElement);
       },
     },
-    ".main__gallery"
+    ".main__gallery",
   );
 
   const popupEditForm = new PopupWithForm(
@@ -120,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .finally(() => {
           popupEditForm.setLoading(false);
         });
-    }
+    },
   );
   popupEditForm.setEventListeners();
 
@@ -130,25 +124,19 @@ document.addEventListener("DOMContentLoaded", () => {
     (inputValues) => {
       popupAddForm.setLoading(true, "Creando...");
 
-      const name = inputValues["title-input"];
-      const link = inputValues["url-input"];
+      const name = inputValues.title;
+      const link = inputValues.url;
 
       api
         .addCard(name, link)
         .then((newCardData) => {
           const cardElement = createCard(newCardData);
-
-          cardListSection.addItem(cardElement);
-
+          cardListSection.prependItem(cardElement);
           popupAddForm.close();
         })
-        .catch((err) => {
-          console.error("Error al crear la tarjeta:", err);
-        })
-        .finally(() => {
-          popupAddForm.setLoading(false);
-        });
-    }
+        .catch((err) => console.error(err))
+        .finally(() => popupAddForm.setLoading(false));
+    },
   );
   popupAddForm.setEventListeners();
 
@@ -170,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .finally(() => {
           popupAvatarForm.setLoading(false);
         });
-    }
+    },
   );
   popupAvatarForm.setEventListeners();
 
@@ -192,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const formValidators = {};
   const formList = Array.from(
-    document.querySelectorAll(formConfig.formSelector)
+    document.querySelectorAll(formConfig.formSelector),
   );
 
   formList.forEach((formElement) => {
