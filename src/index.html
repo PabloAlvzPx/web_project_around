@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -13,88 +13,95 @@
   <body>
     <div class="page">
       <div class="popup popup_edit">
-        <button type="button" class="popup__button popup__button_close">
-          x
-        </button>
-        <form class="popup__form" id="formEdit" novalidate>
-          <h2 class="popup__subtitle">Editar perfil</h2>
-          <fieldset class="popup__content">
-            <label class="popup__field">
-              <input
-                type="text"
-                class="popup__input popup__input_name"
-                placeholder="Nombre"
-                minlength="2"
-                maxlength="40"
-                id="name-input"
-                name="name"
-                required
-              />
-              <span class="popup__error" id="name-input-error"></span>
-            </label>
-            <label class="popup__field">
-              <input
-                type="text"
-                class="popup__input popup__input_about"
-                placeholder="Acerca de mí"
-                minlength="2"
-                maxlength="200"
-                id="about-input"
-                name="about"
-                required
-              />
-              <span class="popup__error" id="about-input-error"></span>
-            </label>
-          </fieldset>
-          <button type="submit" class="popup__button popup__button_save">
-            Guardar
-          </button>
-        </form>
+        <div class="popup__container">
+          <button
+            type="button"
+            class="popup__button popup__button_close"
+          ></button>
+          <form class="popup__form" id="formEdit" novalidate>
+            <h2 class="popup__subtitle">Editar perfil</h2>
+            <fieldset class="popup__content">
+              <label class="popup__field">
+                <input
+                  type="text"
+                  class="popup__input popup__input_name"
+                  placeholder="Nombre"
+                  minlength="2"
+                  maxlength="40"
+                  id="name-input"
+                  name="name"
+                  required
+                />
+                <span class="popup__error" id="name-input-error"></span>
+              </label>
+              <label class="popup__field">
+                <input
+                  type="text"
+                  class="popup__input popup__input_about"
+                  placeholder="Acerca de mí"
+                  minlength="2"
+                  maxlength="200"
+                  id="about-input"
+                  name="about"
+                  required
+                />
+                <span class="popup__error" id="about-input-error"></span>
+              </label>
+            </fieldset>
+            <button type="submit" class="popup__button popup__button_save">
+              Guardar
+            </button>
+          </form>
+        </div>
       </div>
 
       <div class="popup popup_add">
-        <button type="button" class="popup__button popup__button_close">
-          x
-        </button>
-        <form class="popup__form" id="formAdd" novalidate>
-          <h2 class="popup__subtitle">Nuevo Lugar</h2>
-          <fieldset class="popup__content">
-            <label class="popup__field">
-              <input
-                type="text"
-                class="popup__input popup__input_title"
-                placeholder="Título"
-                minlength="2"
-                maxlength="30"
-                id="title-input"
-                name="title"
-                required
-              />
-              <span class="popup__error" id="title-input-error"></span>
-            </label>
-            <label class="popup__field">
-              <input
-                type="url"
-                class="popup__input popup__input_url"
-                placeholder="Enlace de imagen"
-                id="url-input"
-                name="url"
-                required
-              />
-              <span class="popup__error" id="url-input-error"></span>
-            </label>
-          </fieldset>
-          <button type="submit" class="popup__button popup__button_save">
-            Crear
-          </button>
-        </form>
+        <div class="popup__container">
+          <button
+            type="button"
+            class="popup__button popup__button_close"
+          ></button>
+          <form class="popup__form" id="formAdd" novalidate>
+            <h2 class="popup__subtitle">Nuevo Lugar</h2>
+            <fieldset class="popup__content">
+              <label class="popup__field">
+                <input
+                  type="text"
+                  class="popup__input popup__input_title"
+                  placeholder="Título"
+                  minlength="2"
+                  maxlength="30"
+                  id="title-input"
+                  name="title"
+                  required
+                />
+                <span class="popup__error" id="title-input-error"></span>
+              </label>
+              <label class="popup__field">
+                <input
+                  type="url"
+                  class="popup__input popup__input_url"
+                  placeholder="Enlace de imagen"
+                  id="url-input"
+                  name="url"
+                  required
+                />
+                <span class="popup__error" id="url-input-error"></span>
+              </label>
+            </fieldset>
+            <button type="submit" class="popup__button popup__button_save">
+              Crear
+            </button>
+          </form>
+        </div>
       </div>
 
       <div class="popup popup_confirm">
         <div class="popup__container popup__container_confirm">
-          <button type="button" class="popup__button popup__button_close">
-            x
-          </button>
+          <button
+            type="button"
+            class="popup__button popup__button_close"
+          ></button>
           <form
             class="popup__form popup__form_confirm"
             id="formConfirm"
@@ -112,42 +119,49 @@
       </div>
 
       <div class="popup popup_image">
-        <button type="button" class="popup__button popup__button_close">
-          x
-        </button>
-        <div class="popup__images">
-          <div class="popup__content-image">
-            <img class="popup__image" src="#" alt="" />
-          </div>
-          <div class="popup__paragraph-content">
-            <p class="popup__paragraph"></p>
+        <div class="popup__container popup__container_image">
+          <button
+            type="button"
+            class="popup__button popup__button_close"
+          ></button>
+
+          <div class="popup__images">
+            <div class="popup__content-image">
+              <img class="popup__image" src="#" alt="" />
+            </div>
+            <div class="popup__paragraph-content">
+              <p class="popup__paragraph"></p>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="popup popup_avatar">
-        <button type="button" class="popup__button popup__button_close">
-          x
-        </button>
-        <form class="popup__form" id="formAvatar" novalidate>
-          <h2 class="popup__subtitle">Actualizar foto de perfil</h2>
-          <fieldset class="popup__content">
-            <label class="popup__field">
-              <input
-                type="url"
-                class="popup__input popup__input_url"
-                placeholder="Enlace de la imagen"
-                id="avatarUrl-input"
-                name="avatarUrl"
-                required
-              />
-              <span class="popup__error" id="avatarUrl-input-error"></span>
-            </label>
-          </fieldset>
-          <button type="submit" class="popup__button popup__button_save">
-            Guardar
-          </button>
-        </form>
+        <div class="popup__container">
+          <button
+            type="button"
+            class="popup__button popup__button_close"
+          ></button>
+          <form class="popup__form" id="formAvatar" novalidate>
+            <h2 class="popup__subtitle">Actualizar foto de perfil</h2>
+            <fieldset class="popup__content">
+              <label class="popup__field">
+                <input
+                  type="url"
+                  class="popup__input popup__input_url"
+                  placeholder="Enlace de la imagen"
+                  id="avatarUrl-input"
+                  name="avatarUrl"
+                  required
+                />
+                <span class="popup__error" id="avatarUrl-input-error"></span>
+              </label>
+            </fieldset>
+            <button type="submit" class="popup__button popup__button_save">
+              Guardar
+            </button>
+          </form>
+        </div>
       </div>
 
       <header class="header">

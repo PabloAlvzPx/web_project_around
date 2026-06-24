@@ -50,7 +50,6 @@ export default class PopupWithForm extends Popup {
 
   close() {
     super.close();
-    this._formElement.classList.add("popup__item-hidden");
     this._formElement.reset();
   }
 }

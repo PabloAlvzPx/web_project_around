@@ -82,7 +82,18 @@
 .main__button_add {
   width: 150px;
   height: 50px;
-  align-self: end;
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: opacity 0.3s ease;
+  margin-top: 30px;
+}
+
+.main__button_add:hover {
+  opacity: 0.6;
 }
 
 .main__gallery {

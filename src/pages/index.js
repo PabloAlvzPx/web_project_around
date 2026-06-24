@@ -191,11 +191,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   butEdit.addEventListener("click", () => {
-    const userData = userInfo.getUserInfo();
-    inputName.value = userData.name;
-    inputAbout.value = userData.about;
+    if (formValidators["formEdit"]) {
+      formValidators["formEdit"].resetValidation();
+    }
 
-    formValidators.formEdit.resetValidation();
+    const currentUserInfo = userInfo.getUserInfo();
+
+    inputName.value = currentUserInfo.name;
+    inputAbout.value = currentUserInfo.about;
 
     popupEditForm.open();
   });
