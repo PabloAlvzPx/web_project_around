@@ -112,9 +112,10 @@
 }
 
 .main__gallery-image {
-  width: 100%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  width: 100%; /* Asegura que ocupe todo el ancho de la tarjeta */
+  height: 282px; /* O la altura que tengas definida */
+  object-fit: cover; /* ¡Esto es lo que centra y recorta la imagen proporcionalmente! */
+  display: block; /* Elimina espacios en blanco extra debajo de la imagen */
 }
 
 .main__gallery-image:hover {
