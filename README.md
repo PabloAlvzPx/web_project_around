@@ -24,6 +24,14 @@ El proyecto cumple con las siguientes funcionalidades:
 - Funcionalidad de "Me gusta" y eliminación de tarjetas interactiva.
 - Visualización de imágenes en un popup al hacer clic en ellas, manteniendo la proporción de aspecto.
 
+## Interacción con API 🌐
+
+Este proyecto se ha actualizado para integrar el uso de una API externa, permitiendo la persistencia y gestión dinámica de los datos:
+
+- **Comunicación con el Servidor:** Implementación de peticiones asíncronas (`fetch`) para realizar operaciones de tipo `GET`, `POST`, `PATCH` y `DELETE`.
+- **Persistencia de Datos:** Los cambios realizados en el perfil del usuario, la adición de nuevas tarjetas y las interacciones (likes y eliminación) se sincronizan directamente con el servidor.
+- **Gestión de Avatar:** Actualización remota de la foto de perfil mediante una solicitud específica a la API.
+
 ## Tecnologías y Técnicas Utilizadas
 
 - **HTML5:** Estructura semántica de la página.
